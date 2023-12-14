@@ -1,21 +1,29 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { puppyList } from './data.js'
 
+function App() {
+
+const [puppies, setPuppies] = useState(puppyList);
+
+console.log('puppies array: ', puppies);
   return (
-    <>
-      <div>
+      <div className='App'>
+        {
+          puppies.map((pup) => {
+            return <p key={pup.id}>{pup.name}</p>;
+          })
+        }
       </div>
-    </>
   )
 }
 
 export default App
 
+// const [count, setCount] = useState(0)
 // <>
 // <div>
 //   <a href="https://vitejs.dev" target="_blank">
