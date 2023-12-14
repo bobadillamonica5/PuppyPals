@@ -10,13 +10,25 @@ function App() {
 const [puppies, setPuppies] = useState(puppyList);
 
 console.log('puppies array: ', puppies);
+
+const [featPuppyId, setFeatPuppyId] = useState(null);
+
+function addPuppyDetails() {
+  if (featPuppyId) {
+    setFeatPuppyId(pup.id);
+  }
+}
+
   return (
       <div className='App'>
         {
           puppies.map((pup) => {
-            return <p key={pup.id}>{pup.name}</p>;
+            return <p onClick={addPuppyDetails} key={pup.id}>{pup.name}</p>;
           })
         }
+        {featPuppyId && (
+          <p>{featPuppyId}</p>
+        )}
       </div>
   )
 }
